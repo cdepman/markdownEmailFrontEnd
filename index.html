@@ -26,12 +26,17 @@
   <div id="out">
   </div>
   <script src="./js/output.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="./bower_components/socket.io-client/socket.io.js"></script>
   <script>
     var socket = io('http://localhost:3000');
     socket.on('connect', function(){});
     socket.on('event', function(data){});
     socket.on('disconnect', function(){});
+    
+    var HTML = $('out').html();
+
+
+    socket.emit('updateFullTimeA', {data: HTML});
   </script> 
 </body>
 </html>
