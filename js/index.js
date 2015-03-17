@@ -41,7 +41,7 @@ $(function(){
   });
 
   $('.saveToDB').on('click', function(){
-    socket.emit('update'+current, $('out').html());
+    socket.emit('update'+current, {html: $('#out').html(), markdown: editor.getValue()});
   });
 
 });
