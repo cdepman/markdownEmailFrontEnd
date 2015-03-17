@@ -3,7 +3,7 @@
     }
     #in, .CodeMirror{
       position: fixed;
-      top: 0;
+      top: 65px;
       left: 0;
       bottom: 0;
       width: 50%;
@@ -16,9 +16,13 @@
       min-height: 100%;
     }
 
+    .CodeMirror-lines {
+      margin-top: 20px;
+    }
+
     #out{
       position: fixed;
-      top: 0;
+      top: 66px;
       right: 0;
       left: 50%;
       bottom: 0;
@@ -31,7 +35,13 @@
       line-height: 1.5em
     }
 
-    @media screen and (max-width: 1024px) {
+    #selectors{
+      bottom: 0px;
+      position: fixed;
+      margin: 0px;
+    }
+
+    @media screen and (max-width: 800px) {
       #in {
         display: none;
       }
