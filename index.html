@@ -22,10 +22,13 @@
   <nav>
      <div class="nav-wrapper">
        <ul>
-         <li><a><i class="mdi-action-description left"></i>Full Time Email A</a></li>
-         <li><a><i class="mdi-action-description left"></i>Full Time Email B</a></li>
-         <li><a><i class="mdi-action-description left"></i>Part Time Email A</a></li>
-         <li><a><i class="mdi-action-description left"></i>Part Time Email B</a></li>
+         <li><a class='FTA'><i class="mdi-action-description left"></i>Full Time Email A</a></li>
+         <li><a class='FTB'><i class="mdi-action-description left"></i>Full Time Email B</a></li>
+         <li><a class='PTA'><i class="mdi-action-description left"></i>Part Time Email A</a></li>
+         <li><a class='PTB'><i class="mdi-action-description left"></i>Part Time Email B</a></li>
+       </ul>
+       <ul class="right">
+         <li><a class='saveToDB'><i class="mdi-action-backup left"></i>Save To Database</a></li>
        </ul>
      </div>
    </nav>
@@ -50,23 +53,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
   <script src="./js/output.js"></script>
   <script src="./bower_components/socket.io-client/socket.io.js"></script>
-  <script>
-    var socket = io('http://localhost:3000');
-    socket.on('connect', function(){});
-    socket.on('event', function(data){});
-    socket.on('disconnect', function(){});
-    socket.on('populateFullTimeA', function(data){
-      console.log(data);
-      editor.setValue(data.markdown);
-    });
-    socket.emit('fetchFullTimeA');
-
-    socket.on('fetchAvailable')
-
-    // var HTML = $('out').html();
-    // var markdown = editor.getValue();
-
-    // socket.emit('updateFullTimeA', {html: $('#out').html(), markdown: editor.getValue()});
-  </script> 
+  <script src="./js/index.js"></script>
 </body>
 </html>
