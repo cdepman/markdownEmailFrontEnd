@@ -1,9 +1,11 @@
 $(function(){
 
+  // keep track of which document the user is on
   var current = null;
   var socket = io('http://localhost:3000');
-  var error = '  \nCould Not Fetch from Database.  \n_File may not exist._'
+  var error = '  \nCould Not Fetch from Database.  \n_File may not exist yet._'
 
+  // set up socket listeners for incoming updates
   socket.on('populateFullTimeA', function(data){
     !data ? editor.setValue('#Re: FullTimeA' + error) : editor.setValue(data.markdown);
     current = 'FullTimeA';
@@ -24,6 +26,7 @@ $(function(){
     current = 'PartTimeB';
   });
 
+  // set up listeners on DOM elements to respond to user intents
   $('.FTA').on('click', function(){
     socket.emit('fetchFullTimeA');  
   });
@@ -40,8 +43,10 @@ $(function(){
     socket.emit('fetchPartTimeB');  
   });
 
+  // set up listener and cooresponding action for save feature
   $('.saveToDB').on('click', function(){
-    socket.emit('update'+current, {html: $('#out').html(), markdown: editor.getValue()});
+    if (!current){console.log('No Email Selected'); return;}
+    socket.emit('update' + current, { html: $('#out').html(), markdown: editor.getValue() });
   });
 
 });
